@@ -28,7 +28,7 @@ class MemoController extends Controller
      */
     public function create()
     {
-        //
+        return view('memo.create');
     }
 
     /**
