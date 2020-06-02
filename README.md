@@ -39,3 +39,5 @@ $ docker-compose exec php-fpm php artisan migrate --seed
 ・作成されたマイグレーションファイルの修正
 
 ・ルートファイル(routes/web.php)の修正
+
+・usersテーブルとmemosテーブルのhasMany(1対多)を定義
