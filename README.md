@@ -29,3 +29,13 @@ $ docker-compose exec php-fpm php artisan make:seeder UsersTableSeeder
 ```bash
 $ docker-compose exec php-fpm php artisan migrate --seed
 ```
+
+## Memoモデルの作成
+
+```
+$ docker-compose exec php-fpm php artisan migrate --seed
+```
+
+・作成されたマイグレーションファイルの修正
+
+・ルートファイル(routes/web.php)の修正
