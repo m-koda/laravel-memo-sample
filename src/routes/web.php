@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('memo', 'MemoController');
+Route::resource('memo', 'MemoController')->middleware('auth');

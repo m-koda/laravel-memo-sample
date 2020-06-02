@@ -12,9 +12,13 @@ class MemoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user_id = $request->user()->id;
+
+        $memos = Memo::where('user_id', $user_id)->get();
+
+        return view('memo.index', ['memos' => $memos]);
     }
 
     /**
