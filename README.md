@@ -30,10 +30,10 @@ $ docker-compose exec php-fpm php artisan make:seeder UsersTableSeeder
 $ docker-compose exec php-fpm php artisan migrate --seed
 ```
 
-## Memoモデルの作成
+## Memoモデル等の作成
 
 ```
-$ docker-compose exec php-fpm php artisan migrate --seed
+$ docker-compose exec php-fpm php artisan make:model --all Memo
 ```
 
 ・作成されたマイグレーションファイルの修正
@@ -43,3 +43,5 @@ $ docker-compose exec php-fpm php artisan migrate --seed
 ・usersテーブルとmemosテーブルのhasMany(1対多)を定義
 
 ・factoryを使ってmemosテーブルの初期データを作成
+
+## MemoControllerの各種メソッドの実装
