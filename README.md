@@ -44,4 +44,12 @@ $ docker-compose exec php-fpm php artisan make:model --all Memo
 
 ・factoryを使ってmemosテーブルの初期データを作成
 
-## MemoControllerの各種メソッドの実装
+## MemoControllerの各種メソッド(CRUD)の実装
+
+## バリデーションの追加
+・フォームリクエストの作成
+
+```bash
+% docker-compose exec php-fpm php artisan make:request StoreMemo
+```
+

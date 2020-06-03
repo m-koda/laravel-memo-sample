@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Memo;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreMemo;
 
 class MemoController extends Controller
 {
@@ -34,10 +35,10 @@ class MemoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreMemo  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreMemo $request)
     {
         $user_id = $request->user()->id;
 
@@ -75,11 +76,11 @@ class MemoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreMemo  $request
      * @param  \App\Memo  $memo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Memo $memo)
+    public function update(StoreMemo $request, Memo $memo)
     {
         $memo->title = $request->title;
         $memo->content = $request->content;
