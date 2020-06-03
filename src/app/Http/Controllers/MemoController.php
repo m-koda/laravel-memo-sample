@@ -39,7 +39,15 @@ class MemoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id = $request->user()->id;
+
+        $memo = new Memo();
+        $memo->title = $request->title;
+        $memo->content = $request->content;
+        $memo->user_id = $user_id;
+        $memo->save();
+
+        return redirect()->route('memo.index');
     }
 
     /**
