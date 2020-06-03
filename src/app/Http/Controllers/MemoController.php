@@ -69,7 +69,7 @@ class MemoController extends Controller
      */
     public function edit(Memo $memo)
     {
-        //
+        return view('memo.edit', ['memo' => $memo]);
     }
 
     /**
