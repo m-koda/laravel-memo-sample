@@ -96,6 +96,8 @@ class MemoController extends Controller
      */
     public function destroy(Memo $memo)
     {
-        //
+        Memo::destroy($memo->id);
+
+        return redirect()->route('memo.index');
     }
 }
