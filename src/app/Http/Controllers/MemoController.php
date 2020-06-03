@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Memo;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMemo;
+use App\User;
 
 class MemoController extends Controller
 {
@@ -15,9 +16,8 @@ class MemoController extends Controller
      */
     public function index(Request $request)
     {
-        $user_id = $request->user()->id;
-
-        $memos = Memo::where('user_id', $user_id)->paginate(10);
+        $user = User::find($request->user()->id);
+        $memos = $user->memos()->paginate(10);
 
         return view('memo.index', ['memos' => $memos]);
     }
