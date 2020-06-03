@@ -43,8 +43,7 @@ class MemoController extends Controller
         $user_id = $request->user()->id;
 
         $memo = new Memo();
-        $memo->title = $request->title;
-        $memo->content = $request->content;
+        $memo->fill($request->all());
         $memo->user_id = $user_id;
         $memo->save();
 
@@ -82,8 +81,7 @@ class MemoController extends Controller
      */
     public function update(StoreMemo $request, Memo $memo)
     {
-        $memo->title = $request->title;
-        $memo->content = $request->content;
+        $memo->fill($request->all());
         $memo->save();
 
         return redirect()->route('memo.index');
