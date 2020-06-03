@@ -50,7 +50,15 @@ $ docker-compose exec php-fpm php artisan make:model --all Memo
 ・フォームリクエストの作成
 
 ```bash
-% docker-compose exec php-fpm php artisan make:request StoreMemo
+$ docker-compose exec php-fpm php artisan make:request StoreMemo
 ```
 
 ## 一覧ページへのページネーションの追加
+
+## mass assignment対策の追加
+
+## ポリシーの追加
+
+```bash
+$ docker-compose exec php-fpm php artisan make:policy MemoPolicy --model=Memo
+```
