@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', function(){
+  if (Auth::check()) {
+    return redirect()->route('memo.index');
+  } else {
+    return view('home');
+  }
+})->name('home');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('memo', 'MemoController')->middleware('auth');
