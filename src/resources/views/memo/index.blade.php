@@ -37,6 +37,7 @@
             </div>
           </div>
           @endforeach
+          {{ $memos->links() }}
         </div>
     </div>
 </div>

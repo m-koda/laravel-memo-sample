@@ -17,7 +17,7 @@ class MemoController extends Controller
     {
         $user_id = $request->user()->id;
 
-        $memos = Memo::where('user_id', $user_id)->get();
+        $memos = Memo::where('user_id', $user_id)->paginate(10);
 
         return view('memo.index', ['memos' => $memos]);
     }
