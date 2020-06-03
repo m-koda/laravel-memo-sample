@@ -81,7 +81,11 @@ class MemoController extends Controller
      */
     public function update(Request $request, Memo $memo)
     {
-        //
+        $memo->title = $request->title;
+        $memo->content = $request->content;
+        $memo->save();
+
+        return redirect()->route('memo.index');
     }
 
     /**
