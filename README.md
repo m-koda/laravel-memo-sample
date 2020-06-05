@@ -62,3 +62,12 @@ $ docker-compose exec php-fpm php artisan make:request StoreMemo
 ```bash
 $ docker-compose exec php-fpm php artisan make:policy MemoPolicy --model=Memo
 ```
+
+## パスワードリセットのメール送信をキューを使うように変更
+https://aregsar.com/blog/2020/how-to-queue-laravel-password-reset-email/
+
+・notificationの作成
+
+```bash
+$ docker-compose exec php-fpm php artisan make:notification Auth/QueuedResetPassword
+```
