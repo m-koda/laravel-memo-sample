@@ -6,6 +6,7 @@ use App\Memo;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMemo;
 use App\User;
+use App\Tag;
 
 class MemoController extends Controller
 {
@@ -22,7 +23,7 @@ class MemoController extends Controller
     public function index(Request $request)
     {
         $user = User::find($request->user()->id);
-        $memos = $user->memos()->paginate(10);
+        $memos = $user->memos()->paginate(10);        
 
         return view('memo.index', ['memos' => $memos]);
     }
@@ -51,6 +52,11 @@ class MemoController extends Controller
         $memo->fill($request->all());
         $memo->user_id = $user_id;
         $memo->save();
+
+        $request->tags->each(function($tagName) use ($memo) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $memo->tags()->attach($tag);
+        });
 
         return redirect()->route('memo.index');
     }

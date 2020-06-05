@@ -107,3 +107,9 @@ https://readouble.com/laravel/5.5/ja/eloquent-relationships.html#many-to-many
 ```bash
 $ docker-compose exec php-fpm php artisan migrate
 ```
+
+・Tagモデルの作成
+
+```bash
+$ docker-compose exec php-fpm php artisan make:model Tag
+```

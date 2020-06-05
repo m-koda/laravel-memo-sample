@@ -34,7 +34,18 @@
                   </div>
                 </div>
               </div>
+
+              
             </div>
+            @foreach($memo->tags as $tag)
+              @if($loop->first)
+                <div class="card-footer">
+              @endif
+                  <a href="#" class="btn btn-sm btn-outline-secondary">{{ $tag->name }}</a>
+              @if($loop->last)
+                </div>
+              @endif
+            @endforeach
           </div>
           @endforeach
           {{ $memos->links() }}

@@ -26,6 +26,16 @@ class StoreMemo extends FormRequest
         return [
             'title' => 'required|max:255',
             'content' => 'required',
+            'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
+    }
+
+    public function passedValidation()
+    {
+        $this->tags = collect(json_decode($this->tags))
+            ->slice(0, 5)
+            ->map(function ($requestTag) {
+                return $requestTag->text;
+            });
     }
 }
