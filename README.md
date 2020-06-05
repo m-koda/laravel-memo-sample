@@ -71,3 +71,39 @@ https://aregsar.com/blog/2020/how-to-queue-laravel-password-reset-email/
 ```bash
 $ docker-compose exec php-fpm php artisan make:notification Auth/QueuedResetPassword
 ```
+
+## タグ機能の追加
+
+### vue-tags-inputの追加
+・package.jsonに以下を追加
+
+```json
+"@johmun/vue-tags-input": "^2.1.0"
+```
+
+・npm installの実行
+
+```bash
+$ docker-compose exec php-fpm npm install
+```
+
+・tagsテーブルの作成
+
+```bash
+$ docker-compose exec php-fpm php artisan make:migration create_tags_table --create=tags
+```
+
+・中間テーブル(memo_tagテーブル)の作成
+
+```bash
+$ docker-compose exec php-fpm php artisan make:migration create_memo_tag_table --create=memo_tag
+```
+
+※中間テーブルの命名はアルファベット順でテーブル名を並べて_(アンダースコア)でつなげる
+https://readouble.com/laravel/5.5/ja/eloquent-relationships.html#many-to-many
+
+・migrationの実行
+
+```bash
+$ docker-compose exec php-fpm php artisan migrate
+```
