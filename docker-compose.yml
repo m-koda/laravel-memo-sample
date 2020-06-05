@@ -28,3 +28,9 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: laravel
       TZ: 'Asia/Tokyo'
+
+  mailhog:
+    build: ./docker/mailhog
+    ports: 
+      - "1025:1025"
+      - "8025:8025"
