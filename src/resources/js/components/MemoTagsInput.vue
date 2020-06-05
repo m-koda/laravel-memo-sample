@@ -4,6 +4,7 @@
     <vue-tags-input
       v-model="tag"
       :tags="tags"
+      :max-tags="maxTags"
       placeholder="Add Tags(Max:5)"
       :autocomplete-items="filteredItems"
       @tags-changed="newTags => tags = newTags"
@@ -18,10 +19,20 @@ export default {
   components: {
     VueTagsInput
   },
+  props: {
+    initialTags: {
+      type: Array,
+      default: []
+    },
+    "max-tags": {
+      type: Number,
+      default: 5
+    }
+  },
   data() {
     return {
       tag: "",
-      tags: [],
+      tags: this.initialTags,
       autocompleteItems: [
         {
           text: "AWS"
@@ -29,7 +40,8 @@ export default {
         {
           text: "GCP"
         }
-      ]
+      ],
+      "max-tags": 5
     };
   },
   computed: {

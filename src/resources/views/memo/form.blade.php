@@ -10,7 +10,10 @@
 @endif
 
 <div class="form-group">
-    <memo-tags-input></memo-tags-input>
+    <memo-tags-input
+        :initial-tags='@json($tagNames ?? [])'
+    >
+    </memo-tags-input>
 </div>
 <div class="form-group">
     <label for="title">Title</label>

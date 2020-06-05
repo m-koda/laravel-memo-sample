@@ -1935,20 +1935,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     VueTagsInput: _johmun_vue_tags_input__WEBPACK_IMPORTED_MODULE_0___default.a
   },
+  props: {
+    initialTags: {
+      type: Array,
+      "default": []
+    },
+    "max-tags": {
+      type: Number,
+      "default": 5
+    }
+  },
   data: function data() {
     return {
       tag: "",
-      tags: [],
+      tags: this.initialTags,
       autocompleteItems: [{
         text: "AWS"
       }, {
         text: "GCP"
-      }]
+      }],
+      "max-tags": 5
     };
   },
   computed: {
@@ -38215,6 +38227,7 @@ var render = function() {
       _c("vue-tags-input", {
         attrs: {
           tags: _vm.tags,
+          "max-tags": _vm.maxTags,
           placeholder: "Add Tags(Max:5)",
           "autocomplete-items": _vm.filteredItems
         },

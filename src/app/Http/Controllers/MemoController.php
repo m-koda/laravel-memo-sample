@@ -80,7 +80,14 @@ class MemoController extends Controller
      */
     public function edit(Memo $memo)
     {
-        return view('memo.edit', ['memo' => $memo]);
+        $tagNames = $memo->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('memo.edit', [
+            'memo' => $memo,
+            'tagNames' => $tagNames,
+        ]);
     }
 
     /**
@@ -92,8 +99,14 @@ class MemoController extends Controller
      */
     public function update(StoreMemo $request, Memo $memo)
     {
-        $memo->fill($request->all());
-        $memo->save();
+        
+        $memo->fill($request->all())->save();
+        
+        $memo->tags()->detach();
+        $request->tags->each(function($tagName) use ($memo) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $memo->tags()->attach($tag);
+        });
 
         return redirect()->route('memo.index');
     }
