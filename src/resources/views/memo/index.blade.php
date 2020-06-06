@@ -41,7 +41,7 @@
               @if($loop->first)
                 <div class="card-footer">
               @endif
-                  <a href="#" class="btn btn-sm btn-outline-secondary">{{ $tag->name }}</a>
+                  <a href="{{ route('tags.show', ['tag' => $tag->name]) }}" class="btn btn-sm btn-outline-secondary">{{ $tag->hashtag }}</a>
               @if($loop->last)
                 </div>
               @endif

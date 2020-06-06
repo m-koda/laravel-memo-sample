@@ -20,3 +20,4 @@ Route::get('/', function(){
 })->name('home');
 Auth::routes();
 Route::resource('memo', 'MemoController')->middleware('auth');
+Route::get('tags/{tag}', 'TagController@show')->name('tags.show')->middleware('auth');
