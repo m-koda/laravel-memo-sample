@@ -35,7 +35,10 @@ class MemoController extends Controller
      */
     public function create()
     {
-        return view('memo.create');
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+        return view('memo.create', ['allTagNames' => $allTagNames]);
     }
 
     /**
@@ -84,9 +87,14 @@ class MemoController extends Controller
             return ['text' => $tag->name];
         });
 
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
         return view('memo.edit', [
             'memo' => $memo,
             'tagNames' => $tagNames,
+            'allTagNames' => $allTagNames,
         ]);
     }
 

@@ -12,6 +12,7 @@
 <div class="form-group">
     <memo-tags-input
         :initial-tags='@json($tagNames ?? [])'
+        :autocomplete-items='@json($allTagNames ?? [])'
     >
     </memo-tags-input>
 </div>

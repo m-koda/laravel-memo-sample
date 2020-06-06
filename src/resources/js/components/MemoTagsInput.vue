@@ -27,21 +27,16 @@ export default {
     "max-tags": {
       type: Number,
       default: 5
+    },
+    autocompleteItems: {
+      type: Array,
+      default: []
     }
   },
   data() {
     return {
       tag: "",
-      tags: this.initialTags,
-      autocompleteItems: [
-        {
-          text: "AWS"
-        },
-        {
-          text: "GCP"
-        }
-      ],
-      "max-tags": 5
+      tags: this.initialTags
     };
   },
   computed: {
