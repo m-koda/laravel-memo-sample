@@ -113,3 +113,10 @@ $ docker-compose exec php-fpm php artisan migrate
 ```bash
 $ docker-compose exec php-fpm php artisan make:model Tag
 ```
+
+## laravel-debugbarの導入
+https://github.com/barryvdh/laravel-debugbar
+
+```bash
+% docker-compose exec php-fpm composer require barryvdh/laravel-debugbar --dev
+```
