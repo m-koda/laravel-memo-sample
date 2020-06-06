@@ -23,7 +23,7 @@ class MemoController extends Controller
     public function index(Request $request)
     {
         $user = User::find($request->user()->id);
-        $memos = $user->memos()->paginate(10);        
+        $memos = $user->memos()->with('tags')->paginate(10);        
 
         return view('memo.index', ['memos' => $memos]);
     }
